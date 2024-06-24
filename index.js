@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const roborabbit = require('./browserbear');
+const roborabbit = require('./roborabbit');
 const alertService = require('./alertService');
 
 const app = express();

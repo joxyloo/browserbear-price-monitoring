@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const browserbear = require('./browserbear');
+const roborabbit = require('./browserbear');
 const alertService = require('./alertService');
 
 const app = express();
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/job-done', (req, res) => {
-  const currentPrice = req.body.outputs['d26njEyD41OyW3gol4_save_text'];
+  const currentPrice = req.body.outputs['d26njEyDaKmNBW3gol_save_text'];
   console.log('Job done, current price is ' + currentPrice);
   
   if(!oldPrice) {
@@ -26,10 +26,10 @@ app.post('/job-done', (req, res) => {
     alertService.sendEmail(oldPrice, currentPrice);
     oldPrice = currentPrice;
   }
-  browserbear.checkPrice();
+  roborabbit.checkPrice();
 });
 
 app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`);
-  browserbear.checkPrice();
+  roborabbit.checkPrice();
 });
